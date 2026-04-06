@@ -1,13 +1,14 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 export const ENV = {
-  baseURL: 'https://qa-mdashboard.dev.gokwik.in',
-
+  baseURL: process.env.BASE_URL!,
   credentials: {
-    email: 'sandboxuser1@gokwik.co',
-    password: 'Wb7y,=e.9NX9',
-    otp: '123456'
+    email: process.env.USER_EMAIL!,
+    password: process.env.USER_PASSWORD!,
+    otp: process.env.OTP!
   },
-
   merchant: {
-    id: '19h577u3p4be'
+    id: process.env.MERCHANT_ID!
   }
 };
