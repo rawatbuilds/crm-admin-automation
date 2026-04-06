@@ -7,16 +7,16 @@ export default defineConfig({
 
   reporter: [
     ['list'],
-    ['html', { open: 'always' }]   // change to 'always' if you want (on-failure)
+    ['html', { open: process.env.CI ? 'never' : 'always' }]
   ],
 
   use: {
-    baseURL: 'https://qa-mdashboard.dev.gokwik.in',
-    headless: false,
+    baseURL: process.env.BASE_URL || 'https://qa-mdashboard.dev.gokwik.in',
+    headless: process.env.CI ? true : false,
     screenshot: 'only-on-failure',
     trace: 'on-first-retry',
     launchOptions: {
-    slowMo: 800, // 👈 800ms delay between actions
-  },
+      slowMo: process.env.CI ? 0 : 800,
+    },
   },
 });

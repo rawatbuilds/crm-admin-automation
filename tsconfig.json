@@ -8,5 +8,5 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["node", "@playwright/test"]
   },
-  "include": ["automated-tests"]
+  "include": ["automated-tests", "playwright.config.ts"]
 }
