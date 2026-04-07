@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: './automated-tests',
   fullyParallel: false,
   workers: 1,
-
+  timeout: process.env.CI ? 60000 : 30000,
   reporter: [
     ['list'],
     ['html', { open: process.env.CI ? 'never' : 'always' }]
